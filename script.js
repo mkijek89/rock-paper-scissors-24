@@ -31,8 +31,9 @@ function playGame(){
     
     function playRound() {
         
-        const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice();
+        const humanSelection = getHumanChoice();
+        
         
         if (humanSelection === computerSelection){
             return "Draw!";
@@ -49,7 +50,7 @@ function playGame(){
     let computerScore = 0; 
      
 
-    while ((humanScore < 5) || (computerScore < 5)) {
+    while ((humanScore < 5) && (computerScore < 5)) {
         
         const runda = playRound()
         if (runda == "Computer!") {
