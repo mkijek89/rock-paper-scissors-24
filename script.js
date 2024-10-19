@@ -4,7 +4,6 @@ function getRandom(min,max) {
     
     return Math.floor(Math.random()*(max-min+1))+min;
 }
-console.log(getRandom(1,3));
 
 function getComputerChoice() {
     
@@ -45,8 +44,8 @@ function playGame(){
         } else if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper"))
             { return "Human wins, " + humanSelection + " beats " + computerSelection + "!"; 
         } else if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "scissors") || (humanSelection == "scissors" && computerSelection == "rock"))
-        { return "Computer wins, " + computerSelection + " beats " + humanSelection + "!";
-        }
+            { return "Computer wins, " + computerSelection + " beats " + humanSelection + "!";
+        } else { return "ERROR!"}
         
     }
 
@@ -69,7 +68,7 @@ function playGame(){
             console.log(runda)
             console.log("Human: " + humanScore + " Computer: " + computerScore);
             
-        }
+        } 
 
     }
     
