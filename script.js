@@ -10,7 +10,7 @@ function getComputerChoice() {
         return "rock";
     } else if (getRandom(1,3) === 2) {
         return "paper";
-    } else {
+    } else if (getRandom(1,3) === 3){
         return "scissors"
     }
 }
@@ -20,25 +20,57 @@ function getHumanChoice() {
     return choice;
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-console.log("computer: " + computerSelection);
-let humanScore = 0;
-let computerScore = 0;
 
-function playRound(humanSelection, computerSelection) {
-    if (humanSelection === computerSelection){
-        return "Draw!";
-    } else if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper"))
-        { return "Human!"; 
-    } else if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "scissors") || (humanSelection == "scissors" && computerSelection == "rock"))
-    { return "Computer! ";
+
+
+
+function playGame(){
+    
+    
+        
+    
+    function playRound() {
+        
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        
+        if (humanSelection === computerSelection){
+            return "Draw!";
+        } else if ((humanSelection == "rock" && computerSelection == "scissors") || (humanSelection == "paper" && computerSelection == "rock") || (humanSelection == "scissors" && computerSelection == "paper"))
+            { return "Human!"; 
+        } else if ((humanSelection == "rock" && computerSelection == "paper") || (humanSelection == "paper" && computerSelection == "scissors") || (humanSelection == "scissors" && computerSelection == "rock"))
+        { return "Computer!";
+        }
+        
     }
+    
+    
+    let humanScore = 0;
+    let computerScore = 0; 
+     
+
+    while ((humanScore < 5) || (computerScore < 5)) {
+        
+        const runda = playRound()
+        if (runda == "Computer!") {
+            computerScore+=1;   
+            console.log("Human: " + humanScore + " Computer: " + computerScore);         
+        } else if (runda == "Human!") {
+            humanScore+=1;
+            console.log("Human: " + humanScore + " Computer: " + computerScore);
+            
+        } else if (runda == "Draw!") {
+           console.log("Draw!");
+        }
+
+    }
+    
+    
     
 }
 
-console.log(playRound(humanSelection, computerSelection));
-// 3. compare choices and declare score
 
-// 4. play the round
+playGame();
+
+
 // 5. count score and end game when someone gets 5
